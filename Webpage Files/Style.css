@@ -1,0 +1,26 @@
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+ol li {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+ul li {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+#totalMiles {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#BodyTitle {
+    text-align: center;
+}
+
+body {
+    background-image: url("Cities.jpg");
+}
