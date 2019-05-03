@@ -129,9 +129,13 @@ function numberToWord(n) {
  */
 function shortestPath(array) {
     var allPossiblePaths = permutation(array);
+    var numberOfPaths = allPossiblePaths.length;
+    if (numberOfPaths == 0) {
+        return [];
+    }
     var shortestPath = allPossiblePaths[0];
     var shortestPathLength = roundTripDist(shortestPath);
-    for (var index = 1, numberOfPaths = allPossiblePaths.length; index < numberOfPaths; ++index){
+    for (var index = 1; index < numberOfPaths; ++index){
         var currentPath = allPossiblePaths[index];
         var currentPathLength = roundTripDist(currentPath);
         if (currentPathLength < shortestPathLength) {

@@ -42,7 +42,10 @@ document.getElementById('Calculate').addEventListener('click', function() {
     
     //if the input list contains 2 of the same cities side by side!
     
-    var resultCities = shortestPath(inputCities);
+    var resultCities = shortestPath(inputCities); //will return empty city list if given empty city list
+    
+    console.log("List of Sorted Cities:");    
+    console.log(resultCities);
     
     var outputTable = document.getElementById('OutputTable').firstChild;
     
