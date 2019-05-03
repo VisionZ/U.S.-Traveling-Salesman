@@ -91,7 +91,7 @@ window.onload = function() {
         rightCell.innerHTML = "Enter City Name Here";
         rightCell.onchange = typingListener();
         rightCell.id = "Input Table Right " + i;
-        alert(rightCell.id);
+        //alert(rightCell.id);
     }
     
     document.getElementById("InputTable").appendChild(inputTable);

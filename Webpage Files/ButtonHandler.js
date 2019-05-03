@@ -13,20 +13,32 @@ document.getElementById('Calculate').addEventListener('click', function() {
     var inputTable = document.getElementById('InputTable').firstChild;
     var numberOfRows = inputTable.rows.length;
     
-    var inputCities = [];
+    var inputCities = []; //list of city objects
     
-    for (var i = 0; i < numberOfRows; ++i) {
+    for (var index = 0; index < numberOfRows; ++index) {
+        var cityName = trimString(inputTable.rows[index].cells[1].innerHTML);
+        var cityNameLowerCase = cityName.toLowerCase();
         
-        var cityName = trimString(inputTable.rows[i].cells[1].innerHTML);
+        var searchIndex = -1;
         
-        console.log("After: " + cityName);
-        
-        var index = names.indexOf(cityName); //array of city names
-        
-        if (index >= 0) {
-            inputCities.push(cities[index]); //push good cities onto array
+        for (var innerIndex = 0; innerIndex < names.length; ++innerIndex) {
+            var knownCityName = names[innerIndex];
+            if (cityNameLowerCase === knownCityName.toLowerCase()) {
+                searchIndex = innerIndex;
+                break;
+            }
+        }
+    
+        if (searchIndex >= 0) {
+            inputCities.push(cities[searchIndex]); //push good cities onto array
+        }
+        else {
+            console.log("Unable to find: " + cityNameLowerCase);
         }
     }
+    
+    console.log("List of Cities:");    
+    console.log(inputCities);
     
     //if the input list contains 2 of the same cities side by side!
     
@@ -41,12 +53,12 @@ document.getElementById('Calculate').addEventListener('click', function() {
     
     document.querySelector("#TotalMiles").innerHTML = Math.round(roundTripDist(resultCities)) + " Miles";
     
-    printFastestAndSlowestPaths();
+    //printFastestAndSlowestPaths();
     
     alert("Operation Finished");
 });
 
 function trimString(s) {
-    console.log("Before: " + s);
+    //console.log("Before: " + s);
     return s.trim();
 }
